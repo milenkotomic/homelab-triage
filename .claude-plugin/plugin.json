@@ -1,0 +1,16 @@
+{
+  "name": "homelab-triage",
+  "version": "0.1.0",
+  "description": "Read-only incident triage for a self-hosted stack through the Grafana MCP: a mandatory wide pass across metrics, logs and traces, at most five suspects, one hypothesis at a time, and a 20-query budget.",
+  "author": {
+    "name": "Milenko Tomic",
+    "url": "https://github.com/milenkotomic"
+  },
+  "homepage": "https://github.com/milenkotomic/homelab-triage",
+  "repository": "https://github.com/milenkotomic/homelab-triage",
+  "license": "MIT",
+  "keywords": ["incident", "triage", "grafana", "homelab", "observability", "debugging"],
+  "experimental": {
+    "evals": "skills/homelab-triage/evals"
+  }
+}

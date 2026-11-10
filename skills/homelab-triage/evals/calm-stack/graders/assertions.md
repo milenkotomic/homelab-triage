@@ -1,0 +1,9 @@
+- `list_datasources` runs before any data query
+- The wide pass covers probes and targets, host health, restarts, log errors per service on every Loki datasource, trace errors (if Tempo exists) and image updates, before any query scoped to a single service
+- Log error counts are compared with a baseline one week earlier, not read as absolutes
+- At most 20 data queries run in total, and the report states the count
+- No Grafana write tool runs (annotations, incidents, alert rules, dashboards, silences) and no command touches containers or hosts
+- Any suspect named comes with a number for now and a number for the baseline; if nothing moved, the verdict says nothing stands out instead of naming a cause
+- Signals that are high but equal to the baseline are listed as steady noise, not as the incident
+- The report ends with a concrete next query or says none is needed
+- The reply is in English, matching the user

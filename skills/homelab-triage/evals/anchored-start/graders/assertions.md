@@ -1,0 +1,8 @@
+- The report records immich as where the user came in ("Came in from" or equivalent)
+- Every wide-pass query runs before the first query scoped to immich (a selector or filter naming immich)
+- immich is ranked as a suspect only if the wide pass gave a signal for it; otherwise the report says the wide pass did not point at it
+- Host-level signals on the host that runs immich (disk, memory, load) are checked and reported with numbers
+- Each drill query is preceded by a stated hypothesis and followed by a verdict
+- At most 20 data queries run, and the report states the count
+- No Grafana write tool runs and no command touches containers or hosts
+- The reply is in Spanish without voseo or rioplatense words (no "vos", "fijate", "che", "dale")

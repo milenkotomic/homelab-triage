@@ -1,0 +1,5 @@
+name: calm-stack
+description: >
+  The user asks, with no starting point, whether anything is broken. A good run
+  does the full wide pass, separates steady noise from change, and does not
+  invent a root cause when nothing moved against the baseline.

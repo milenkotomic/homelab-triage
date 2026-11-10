@@ -1,0 +1,5 @@
+name: anchored-start
+description: >
+  The user names a service in Spanish. A good run records it as where they came
+  in, still runs the full wide pass first, and only then looks at the named
+  service, replying in Chilean or neutral Spanish.

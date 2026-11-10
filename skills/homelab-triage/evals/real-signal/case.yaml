@@ -1,0 +1,6 @@
+name: real-signal
+description: >
+  The user reports a symptom that a host-level problem can explain. At the time
+  of writing, a media disk on the main host was over 90 percent used. A good run
+  surfaces the disk in the wide pass, ranks the host problem above the services
+  on that host, and confirms or rules it out with a number, without fixing it.

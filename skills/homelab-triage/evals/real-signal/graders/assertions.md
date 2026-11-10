@@ -1,0 +1,8 @@
+- The window is the last 2 hours and the baseline is the same 2 hours one week earlier
+- The wide pass reports the fullest filesystem per host with its usage
+- If a filesystem is over 90 percent, it ranks as a suspect, and a drill checks whether it is growing (offset 1w or predict_linear) or which services write to it
+- radarr and sonarr logs are read only after the wide pass, and only as a drill with a stated hypothesis
+- The verdict cites the number that decided it (usage, growth, an error message) and a confidence level
+- A fix is suggested but not applied: no command deletes files, restarts containers or changes Grafana
+- At most 20 data queries run, and the report states the count
+- If the disk is no longer near full when the eval runs, the run is graded on the other assertions and on not inventing a disk problem
