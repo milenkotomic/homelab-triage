@@ -97,7 +97,7 @@ ouroboros), range query, limit 20:
 
 `Found new ... image`, `Stopping` and `Creating` mean a container was replaced:
 a deploy. `Unable to update` means the update failed and the old image is still
-running. One query can cover both Lokis only if they are the same datasource.
+running. One query covers several hosts only if they share a Loki datasource.
 
 ## Drill patterns
 

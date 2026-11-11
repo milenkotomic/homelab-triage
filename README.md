@@ -17,7 +17,7 @@ service you mentioned and running queries until something looks guilty.
 - **Budget of 20 data queries.** When it runs out, it reports the best lead,
   what was ruled out and the next query instead of guessing.
 - **Read-only.** It never writes to Grafana or touches containers; it suggests
-  the fix.
+  the fix. See [Security](#security) for how to enforce that.
 
 Nothing about your stack is hard-coded: services, hosts and endpoints are
 discovered from query results on each run.
@@ -29,9 +29,29 @@ claude plugin marketplace add milenkotomic/claude-plugins
 claude plugin install homelab-triage@milenkotomic
 ```
 
-Requires the Grafana MCP server connected to your Grafana with at least a
-Viewer service account. Works best with Prometheus (blackbox, node_exporter,
+Requires the Grafana MCP server connected to your Grafana with a Viewer
+service account. Works best with Prometheus (blackbox, node_exporter,
 cadvisor), Loki with a `service_name` label, and optionally Tempo.
+
+## Security
+
+The skill tells the model to stay read-only, but an instruction is not a
+control. Enforce it where the model cannot talk its way around it:
+
+- **Use a Viewer service account token, never Editor or Admin.** The token is
+  the real limit on what any tool call can do.
+- **Start the MCP server with `--disable-write --disable-api`.** That removes
+  the create and update tools and the raw API passthrough, so they are not
+  there to be called.
+- **Logs are untrusted input.** Anyone who can send a request to one of your
+  exposed services can put text in its logs, and the skill reads log lines
+  when it drills into a suspect. It is told to treat that text as data and to
+  report anything that looks like an instruction, but keep the two controls
+  above in place and avoid running triage in a session that auto-approves
+  unrelated tools (shell, mail, other MCP servers).
+- **Reports can contain what your logs contain.** The skill redacts
+  credentials and URL query strings when it quotes a line, on a best-effort
+  basis. Read a report before pasting it into a public issue or chat.
 
 ## Use
 

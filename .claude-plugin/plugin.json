@@ -1,6 +1,6 @@
 {
   "name": "homelab-triage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read-only incident triage for a self-hosted stack through the Grafana MCP: a mandatory wide pass across metrics, logs and traces, at most five suspects, one hypothesis at a time, and a 20-query budget.",
   "author": {
     "name": "Milenko Tomic",
